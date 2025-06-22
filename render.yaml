@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: cryptogoldalertbot
+    env: python
+    plan: free
+    buildCommand: pip install -r render-requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: DEFAULT_LANGUAGE
+        value: en
+      - key: FETCH_INTERVAL_MINUTES
+        value: 10
+      - key: MAX_ARTICLES_PER_FETCH
+        value: 10
+      - key: PORT
+        value: 10000
